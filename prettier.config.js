@@ -1,0 +1,21 @@
+/** @type { import('prettier').Config} */
+module.exports = {
+  arrowParens: 'always',
+  bracketSpacing: true,
+  printWidth: 100,
+  endOfLine: 'lf',
+  quoteProps: 'as-needed',
+  semi: true,
+  singleQuote: true,
+  tabWidth: 2,
+  trailingComma: 'all',
+  useTabs: false,
+  importOrder: ['^(@nestjs/(.*)$|^next$)', '<THIRD_PARTY_MODULES>', '@/(.*)$', '', '^[./]'],
+  importOrderSeparation: true,
+  importOrderSortSpecifiers: true,
+  importOrderBultinModulesToTop: true,
+  importOrderParserPlugins: ['typescript', 'decorators-legacy'],
+  importOrderMergeDublicateImports: true,
+  importOrderCombineTypeAndValueImports: true,
+  plugins: ['@ianvs/prettier-plugin-sort-imports'],
+};

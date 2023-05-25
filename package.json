@@ -1,0 +1,49 @@
+{
+    "name": "@upfold-io/nestjs-template",
+    "description": "Opinionated NestJS template",
+    "author": {
+        "name": "Tamas Palecian",
+        "email": "services@upfold.io",
+        "url": "https://www.upfold.io"
+    },
+    "private": false,
+    "license": "MIT",
+    "scripts": {
+        "start": "nest start",
+        "start:dev": "nest start --watch",
+        "start:debug": "nest start --debug --watch",
+        "start:prod": "node dist/main"
+    },
+    "dependencies": {
+        "@nestjs/common": "^9.3.12",
+        "@nestjs/config": "^2.3.1",
+        "@nestjs/core": "^9.3.12",
+        "@nestjs/jwt": "^10.0.3",
+        "@nestjs/passport": "^9.0.3",
+        "@nestjs/platform-express": "^9.3.12",
+        "@nestjs/swagger": "^6.3.0",
+        "@prisma/client": "^4.12.0",
+        "argon2": "^0.30.3",
+        "class-validator": "^0.14.0",
+        "helmet": "^6.0.1",
+        "passport": "^0.6.0",
+        "passport-jwt": "^4.0.1",
+        "prisma": "^4.12.0",
+        "reflect-metadata": "^0.1.13",
+        "rimraf": "^4.4.1",
+        "rxjs": "^7.8.0"
+    },
+    "devDependencies": {
+        "@commitlint/cli": "^17.5.1",
+        "@commitlint/config-conventional": "^17.4.4",
+        "@ianvs/prettier-plugin-sort-imports": "^3.7.1",
+        "@nestjs/cli": "^9.3.0",
+        "@nestjs/schematics": "^9.0.4",
+        "@types/node": "^18.15.11",
+        "@types/passport-jwt": "^3.0.8",
+        "class-transformer": "^0.5.1",
+        "prettier": "^2.8.7",
+        "source-map-support": "^0.5.21",
+        "typescript": "^5.0.2"
+    }
+}
