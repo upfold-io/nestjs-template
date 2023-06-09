@@ -8,45 +8,46 @@ generator client {
 datasource db {
   provider          = "mysql"
   url               = env("DATABASE_URL")
-  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
+  shadowDatabaseUrl = env("DATABASE_SHADOW_URL")
   relationMode      = "prisma"
 }
 
 model Identity {
   id String @id @default(uuid())
 
-  emailAddress      String        @unique
-  password          String
-  verified          Boolean       @default(false)
-  enabled           Boolean       @default(false)
-  cookiesAccepted   Boolean       @default(false)
-  salt              String
-  loginCcount       Int           @default(0)
-  lastLoginAt       DateTime?
-  passwordRequested Boolean       @default(false)
-  createdAt         DateTime      @default(now())
-  updatedAt         DateTime?
-  AuthSession       AuthSession[]
+  email_address      String    @unique
+  password           String
+  verified           Boolean   @default(false)
+  enabled            Boolean   @default(false)
+  cookies_accepted   Boolean   @default(false)
+  salt               String
+  login_count        Int       @default(0)
+  last_login_at      DateTime?
+  password_requested Boolean   @default(false)
+  created_at         DateTime  @default(now())
+  updated_at         DateTime?
 
-  @@index([emailAddress], name: "idx_identity_email-address")
+  AuthSessions Session[]
+
+  @@index([email_address], name: "idx_identity_email-address")
   @@map("identity")
 }
 
-model AuthSession {
-  id           String    @id @default(uuid())
-  identityId   String
-  accessToken  String
-  refreshToken String
-  expiresAt    DateTime
-  createdAt    DateTime  @default(now())
-  updatedAt    DateTime?
+model Session {
+  id            String    @id @default(uuid())
+  identity_id   String
+  access_token  String    @unique
+  refresh_token String    @unique
+  expires_at    DateTime
+  created_at    DateTime  @default(now())
+  updated_at    DateTime? @default(now())
 
-  identity Identity @relation(fields: [identityId], references: [id])
+  identity Identity @relation(fields: [identity_id], references: [id])
 
-  @@index([identityId], name: "idx_auth-session_identity-id")
-  @@index([accessToken], name: "idx_auth-session_access-token")
-  @@index([refreshToken], name: "idx_auth-session_refresh-token")
-  @@map("auth_session")
+  @@index([identity_id], name: "idx_session_identity-id")
+  @@index([access_token], name: "idx_session_access-token")
+  @@index([refresh_token], name: "idx_session_refresh-token")
+  @@map("session")
 }
 
 model Subscriber {

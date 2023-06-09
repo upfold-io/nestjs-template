@@ -1,11 +1,12 @@
 import { Module } from '@nestjs/common';
 
-import { PrismaModule } from '@/shared/prisma/prisma.module';
+import { PrismaModule } from '@/prisma/prisma.module';
 
+import { NewsletterControler } from './controllers';
 import { NewsletterService } from './services';
 
 @Module({
-  controllers: [],
+  controllers: [NewsletterControler],
   imports: [PrismaModule],
   providers: [NewsletterService],
 })

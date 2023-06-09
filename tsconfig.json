@@ -12,7 +12,11 @@
     "baseUrl": "./src",
     "incremental": true,
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./*"],
+      "@common/*": ["./common/*"],
+      "@config": ["./config"],
+      "@modules/*": ["./modules/*"],
+      "@shared/*": ["./shared/*"]
     }
   },
   "exclude": ["node_modules", "dist", "public"]

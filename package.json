@@ -13,7 +13,8 @@
         "start:dev": "nest start --watch",
         "start:debug": "nest start --debug --watch",
         "start:prod": "node -r tsconfig-paths/register dist/main",
-        "build": "nest build && tsc-alias"
+        "build": "nest build && tsc-alias",
+        "prepare": "husky install"
     },
     "dependencies": {
         "@nestjs/common": "^9.3.12",
@@ -23,8 +24,10 @@
         "@nestjs/passport": "^9.0.3",
         "@nestjs/platform-express": "^9.3.12",
         "@nestjs/swagger": "^6.3.0",
+        "@nestjs/terminus": "^9.2.2",
         "@prisma/client": "^4.12.0",
         "argon2": "^0.30.3",
+        "bcrypt": "^5.1.0",
         "class-validator": "^0.14.0",
         "helmet": "^6.0.1",
         "passport": "^0.6.0",
@@ -35,14 +38,17 @@
         "rxjs": "^7.8.0"
     },
     "devDependencies": {
-        "@commitlint/cli": "^17.5.1",
+        "@commitlint/cli": "^17.6.5",
         "@commitlint/config-conventional": "^17.4.4",
         "@ianvs/prettier-plugin-sort-imports": "^3.7.1",
         "@nestjs/cli": "^9.3.0",
+        "@nestjs/devtools-integration": "^0.1.4",
         "@nestjs/schematics": "^9.0.4",
+        "@types/bcrypt": "^5.0.0",
         "@types/node": "^18.15.11",
         "@types/passport-jwt": "^3.0.8",
         "class-transformer": "^0.5.1",
+        "husky": "^8.0.3",
         "prettier": "^2.8.7",
         "source-map-support": "^0.5.21",
         "tsc-alias": "^1.8.6",
